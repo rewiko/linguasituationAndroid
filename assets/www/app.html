@@ -25,7 +25,7 @@
 	function ajout_list_view(){
 	   $('#result-listview').append(
 		      '<li data-theme="c">'  +
-		        '<a href="#id_' + current_id_playlist + '">' 
+		        '<a data-prefetch href="#id_' + current_id_playlist + '">' 
 					 +current_playlist +'  <span class="ui-li-count">'+nb_mot+
 				'</span></a>' +
 		      '</li>'
@@ -143,10 +143,17 @@
 						
 					});
 					
+					
 			
 					
 				});
 				
+				var usera = navigator.userAgent.toLowerCase();
+                var isAndroid = usera.indexOf("android") > -1;
+                if(isAndroid) {
+                    $.mobile.maxTransitionWidth = 1;
+                }
+
 			});
         </script>
     </head>
